@@ -1,0 +1,522 @@
+@@ -0,0 +1,521 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "name": "Chi-square distribution.ipynb",
+      "provenance": [],
+      "authorship_tag": "ABX9TyPVojL9xgBa1AmciG07cmnp",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/LeeSeungYun1020/Introduction_To_Data_Science/blob/master/classroom/Chi_square_distribution.ipynb\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "OlKyIkJVLXXe",
+        "outputId": "0a3a5d4d-9ce1-4d5d-ad1a-248cacb5ea49"
+      },
+      "source": [
+        "import scipy.stats as stats\n",
+        "stats.chisquare([33, 8, 4], [27, 11.25, 6.75])"
+      ],
+      "execution_count": 5,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Power_divergenceResult(statistic=3.3925925925925924, pvalue=0.18336138421910456)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 5
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "RoZAuCiTMQPe",
+        "outputId": "6aa77078-b7a3-4ca8-c38f-63ab71ac2491"
+      },
+      "source": [
+        "ex = [200 *0.33, 200 *0.30,200 * 0.30, 200 * 0.04, 200 * 0.03]\n",
+        "ob = [74,60,54,11,1]\n",
+        "stats.chisquare(ob, ex)"
+      ],
+      "execution_count": 10,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Power_divergenceResult(statistic=6.861363636363636, pvalue=0.143398424637067)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 10
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "6EI9Je4CNKrP",
+        "outputId": "17ad7e98-00dc-438c-f7b5-72d045c5a174"
+      },
+      "source": [
+        "ex = [25, 10, 10, 5]\n",
+        "ob = [17, 14, 14, 5]\n",
+        "stats.chisquare(ob, ex)"
+      ],
+      "execution_count": 11,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Power_divergenceResult(statistic=5.76, pvalue=0.12388881726443804)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 11
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "DQAMyrgETI-X",
+        "outputId": "e542684a-4fb6-4b05-e1e3-e15d6d98dc88"
+      },
+      "source": [
+        "ob = [30, 25, 15, 20, 5, 5]\n",
+        "ex = [35, 21, 14, 15, 9, 6]\n",
+        "stats.chisquare(ob, ex, ddof=3)"
+      ],
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Power_divergenceResult(statistic=5.158730158730159, pvalue=0.07582212977799092)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 14
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "O2nbriMkSWWD",
+        "outputId": "5ac92761-fc7a-494a-c8ba-c0bc3ad750fb"
+      },
+      "source": [
+        "ob = [6, 20, 94, 10, 13, 97, 20, 33, 307]\n",
+        "ex = [7.2, 13.2, 99.6, 7.2, 13.2, 99.6, 21.6, 39.6, 298.8]\n",
+        "stats.chisquare(ob, ex, ddof=4)"
+      ],
+      "execution_count": 15,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Power_divergenceResult(statistic=6.621232404364934, pvalue=0.1573102454361324)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 15
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "mTHcIgt-UWDH",
+        "outputId": "ebcb6459-0394-4f21-a982-1c700fa67acb"
+      },
+      "source": [
+        "ob = [8, 10, 28, 61, 39, 29, 75, 50]\n",
+        "ex = [9, 9, 44.5, 44.5, 34, 34, 62.5, 62.5]\n",
+        "stats.chisquare(ob, ex, ddof=4)"
+      ],
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Power_divergenceResult(statistic=18.928765513696113, pvalue=0.00028282921547299954)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 16
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "id": "6geFchMYXuwY"
+      },
+      "source": [
+        "import pandas as pd\n",
+        "import numpy as np"
+      ],
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/",
+          "height": 195
+        },
+        "id": "K_wPEx_UWdet",
+        "outputId": "6ad498aa-940c-493b-99ad-4deca80949d1"
+      },
+      "source": [
+        "\n",
+        "df = pd.read_csv(\"https://raw.githubusercontent.com/inetguru/IDS-CB35533/main/students.csv\")\n",
+        "df.head(5)"
+      ],
+      "execution_count": 19,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/html": [
+              "<div>\n",
+              "<style scoped>\n",
+              "    .dataframe tbody tr th:only-of-type {\n",
+              "        vertical-align: middle;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe tbody tr th {\n",
+              "        vertical-align: top;\n",
+              "    }\n",
+              "\n",
+              "    .dataframe thead th {\n",
+              "        text-align: right;\n",
+              "    }\n",
+              "</style>\n",
+              "<table border=\"1\" class=\"dataframe\">\n",
+              "  <thead>\n",
+              "    <tr style=\"text-align: right;\">\n",
+              "      <th></th>\n",
+              "      <th>Gender</th>\n",
+              "      <th>IQ</th>\n",
+              "      <th>SCORE1</th>\n",
+              "      <th>Weight</th>\n",
+              "      <th>Reading</th>\n",
+              "      <th>SCORE2</th>\n",
+              "    </tr>\n",
+              "  </thead>\n",
+              "  <tbody>\n",
+              "    <tr>\n",
+              "      <th>0</th>\n",
+              "      <td>Female</td>\n",
+              "      <td>132</td>\n",
+              "      <td>85</td>\n",
+              "      <td>45</td>\n",
+              "      <td>5</td>\n",
+              "      <td>87</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>1</th>\n",
+              "      <td>Female</td>\n",
+              "      <td>110</td>\n",
+              "      <td>63</td>\n",
+              "      <td>56</td>\n",
+              "      <td>4</td>\n",
+              "      <td>70</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>2</th>\n",
+              "      <td>Female</td>\n",
+              "      <td>123</td>\n",
+              "      <td>92</td>\n",
+              "      <td>54</td>\n",
+              "      <td>6</td>\n",
+              "      <td>95</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>3</th>\n",
+              "      <td>Female</td>\n",
+              "      <td>100</td>\n",
+              "      <td>40</td>\n",
+              "      <td>47</td>\n",
+              "      <td>0</td>\n",
+              "      <td>60</td>\n",
+              "    </tr>\n",
+              "    <tr>\n",
+              "      <th>4</th>\n",
+              "      <td>Female</td>\n",
+              "      <td>115</td>\n",
+              "      <td>76</td>\n",
+              "      <td>50</td>\n",
+              "      <td>1</td>\n",
+              "      <td>80</td>\n",
+              "    </tr>\n",
+              "  </tbody>\n",
+              "</table>\n",
+              "</div>"
+            ],
+            "text/plain": [
+              "   Gender   IQ  SCORE1  Weight  Reading  SCORE2\n",
+              "0  Female  132      85      45        5      87\n",
+              "1  Female  110      63      56        4      70\n",
+              "2  Female  123      92      54        6      95\n",
+              "3  Female  100      40      47        0      60\n",
+              "4  Female  115      76      50        1      80"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 19
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "yESoPwJofCvt",
+        "outputId": "79c128c7-6882-41bd-9fd8-8e93a718f382"
+      },
+      "source": [
+        "df.shape"
+      ],
+      "execution_count": 45,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "(100, 6)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 45
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "N8BCJkIAW9Nc",
+        "outputId": "1528dc87-b0d4-43c5-f297-83f18d56833e"
+      },
+      "source": [
+        "stats.ttest_1samp(df[\"IQ\"], 120)"
+      ],
+      "execution_count": 22,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Ttest_1sampResult(statistic=-1.1253137230548766, pvalue=0.2631768888016548)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 22
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "cG4oeiaHYZ9o",
+        "outputId": "cdba93b6-4406-43d5-c66d-620b80eb9602"
+      },
+      "source": [
+        "#print(stats.ttest_ind(df[df[\"Gender\"] == \"Female\"][\"SCORE1\"], df[df[\"Gender\"] == \"Male\"][\"SCORE1\"]))\n",
+        "print(len(df[df[\"Gender\"] == \"Female\"][\"SCORE1\"]))\n",
+        "print(stats.ttest_ind(df[df[\"Gender\"] == \"Male\"][\"SCORE1\"], df[df[\"Gender\"] == \"Female\"][\"SCORE1\"]))\n",
+        "print(stats.ttest_ind(df[df[\"Gender\"] == \"Male\"][\"SCORE1\"], df[df[\"Gender\"] == \"Female\"][\"SCORE1\"], equal_var=True))"
+      ],
+      "execution_count": 55,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "50\n",
+            "Ttest_indResult(statistic=-2.550971358542069, pvalue=0.012289481033340887)\n",
+            "Ttest_indResult(statistic=-2.550971358542069, pvalue=0.012289481033340887)\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "Wc9jwnypfPK-",
+        "outputId": "6286e59c-2823-4ced-9a45-d51e7dc3caf9"
+      },
+      "source": [
+        "len(df[(df[\"Gender\"] == \"Male\")]) == len(df[(df[\"Gender\"] == \"Female\")])"
+      ],
+      "execution_count": 52,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "True"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 52
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "noAdLUPrcKrT",
+        "outputId": "04edd664-3f51-4a68-d73f-907afbb25987"
+      },
+      "source": [
+        "ob = []\n",
+        "ex = []\n",
+        "for i in range(0, 7):\n",
+        "  mr = len(df[(df[\"Gender\"] == \"Male\") & (df[\"Reading\"] == i)])\n",
+        "  fr = len(df[(df[\"Gender\"] == \"Female\") & (df[\"Reading\"] == i)])\n",
+        "  ob.append(mr)\n",
+        "  ob.append(fr)\n",
+        "  mu = (mr + fr) / 2\n",
+        "  ex.append(mu)\n",
+        "  ex.append(mu)\n",
+        "  print(mr, fr, mr + fr)\n",
+        "\n",
+        "print()\n",
+        "print(ob)\n",
+        "print(ex)"
+      ],
+      "execution_count": 49,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "text": [
+            "6 10 16\n",
+            "11 9 20\n",
+            "7 5 12\n",
+            "9 4 13\n",
+            "7 8 15\n",
+            "5 8 13\n",
+            "5 6 11\n",
+            "\n",
+            "[6, 10, 11, 9, 7, 5, 9, 4, 7, 8, 5, 8, 5, 6]\n",
+            "[8.0, 8.0, 10.0, 10.0, 6.0, 6.0, 6.5, 6.5, 7.5, 7.5, 6.5, 6.5, 5.5, 5.5]\n"
+          ],
+          "name": "stdout"
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "PQo4Qr8vgglY",
+        "outputId": "b6e89723-2686-4656-fb06-4630c9fd4f18"
+      },
+      "source": [
+        "stats.chisquare(ob, ex, ddof=7)"
+      ],
+      "execution_count": 53,
+      "outputs": [
+        {
+          "output_type": "execute_result",
+          "data": {
+            "text/plain": [
+              "Power_divergenceResult(statistic=4.306293706293707, pvalue=0.6353019918175722)"
+            ]
+          },
+          "metadata": {
+            "tags": []
+          },
+          "execution_count": 53
+        }
+      ]
+    }
+  ]
+}
